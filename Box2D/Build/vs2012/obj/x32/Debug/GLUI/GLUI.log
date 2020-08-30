@@ -1,0 +1,67 @@
+﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+cl : command line warning D9025: overriding '/W3' with '/W1'
+  quaternion.cpp
+  glui_window.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_treepanel.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui_treepanel.cpp(169,20): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_tree.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_translation.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_textbox.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_string.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_statictext.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_spinner.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_separator.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_scrollbar.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_rotation.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_rollout.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_radio.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_panel.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_node.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_mouse_iaction.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_listbox.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_list.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_filebrowser.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  Generating Code...
+  Compiling...
+  glui_edittext.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_control.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_commandline.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_column.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_checkbox.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_button.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_bitmap_img_data.cpp
+  glui_bitmaps.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui_add_controls.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  glui.cpp
+D:\Games and programs\SDK and Libraries\Box2D\Box2D\glui\glui.h(914,24): warning C4834: discarding return value of function with 'nodiscard' attribute
+  arcball.cpp
+  algebra3.cpp
+  Generating Code...
+  GLUI.vcxproj -> D:\Games and programs\SDK and Libraries\Box2D\Box2D\Build\vs2012\bin\Debug\GLUI.lib

@@ -1,0 +1,5 @@
+﻿  Player.cpp
+D:\Games and programs\Amber\Amber\Input.h(29,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\Input.h(30,45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\Renderer.h(4,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Amber.vcxproj -> D:\Games and programs\Amber\Debug\Amber.exe

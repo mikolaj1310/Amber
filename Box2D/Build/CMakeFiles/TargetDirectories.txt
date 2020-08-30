@@ -1,0 +1,7 @@
+D:/Games and programs/SDK and Libraries/Box2D/Box2D/Build/CMakeFiles/ALL_BUILD.dir
+D:/Games and programs/SDK and Libraries/Box2D/Box2D/Build/CMakeFiles/ZERO_CHECK.dir
+D:/Games and programs/SDK and Libraries/Box2D/Box2D/Build/Box2D/CMakeFiles/Box2D.dir
+D:/Games and programs/SDK and Libraries/Box2D/Box2D/Build/HelloWorld/CMakeFiles/HelloWorld.dir
+D:/Games and programs/SDK and Libraries/Box2D/Box2D/Build/freeglut/CMakeFiles/freeglut_static.dir
+D:/Games and programs/SDK and Libraries/Box2D/Box2D/Build/glui/CMakeFiles/glui.dir
+D:/Games and programs/SDK and Libraries/Box2D/Box2D/Build/Testbed/CMakeFiles/Testbed.dir

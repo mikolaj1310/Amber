@@ -1,0 +1,10 @@
+^D:\GAMES AND PROGRAMS\SDK AND LIBRARIES\BOX2D\BOX2D\BUILD\CMAKEFILES\35B6A06557640693A0B2D1A72CFE5574\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/Games and programs/SDK and Libraries/Box2D/Box2D" "-BD:/Games and programs/SDK and Libraries/Box2D/Box2D/Build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/Games and programs/SDK and Libraries/Box2D/Box2D/Build/Box2D.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

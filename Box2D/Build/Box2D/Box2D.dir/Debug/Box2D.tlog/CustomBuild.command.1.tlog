@@ -1,0 +1,10 @@
+^D:\GAMES AND PROGRAMS\SDK AND LIBRARIES\BOX2D\BOX2D\BOX2D\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/Games and programs/SDK and Libraries/Box2D/Box2D" "-BD:/Games and programs/SDK and Libraries/Box2D/Box2D/Build" --check-stamp-file "D:/Games and programs/SDK and Libraries/Box2D/Box2D/Build/Box2D/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

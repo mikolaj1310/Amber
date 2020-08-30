@@ -1,0 +1,101 @@
+﻿  Collision.cpp
+D:\Games and programs\Amber\Amber\Input.h(29,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\Input.h(30,45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  GameObject.cpp
+D:\Games and programs\Amber\Amber\Input.h(29,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\Input.h(30,45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Item.cpp
+D:\Games and programs\Amber\Amber\Input.h(29,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\Input.h(30,45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  LevelHub.cpp
+D:\Games and programs\Amber\Amber\Input.h(29,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\Input.h(30,45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\LevelHub.cpp(20,58): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+D:\Games and programs\Amber\Amber\LevelHub.cpp(52,29): warning C4305: 'argument': truncation from 'double' to 'float32'
+D:\Games and programs\Amber\Amber\LevelHub.cpp(138,22): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Games and programs\Amber\Amber\LevelHub.cpp(140,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Games and programs\Amber\Amber\LevelHub.cpp(143,22): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Games and programs\Amber\Amber\LevelHub.cpp(145,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Games and programs\Amber\Amber\LevelHub.cpp(150,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Games and programs\Amber\Amber\LevelHub.cpp(150,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Games and programs\Amber\Amber\LevelHub.cpp(154,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Games and programs\Amber\Amber\LevelHub.cpp(158,54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Main.cpp
+D:\Games and programs\Amber\Amber\Input.h(29,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\Input.h(30,45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\Main.cpp(26,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+D:\Games and programs\Amber\Amber\Main.cpp(115,46): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Games and programs\Amber\Amber\Main.cpp(115,34): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Menu.cpp
+D:\Games and programs\Amber\Amber\Input.h(29,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\Input.h(30,45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\Menu.cpp(68,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Games and programs\Amber\Amber\Menu.cpp(68,43): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  MenuButton.cpp
+D:\Games and programs\Amber\Amber\Input.h(29,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\Input.h(30,45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\MenuButton.cpp(149,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Games and programs\Amber\Amber\MenuButton.cpp(149,43): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Player.cpp
+D:\Games and programs\Amber\Amber\Input.h(29,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\Input.h(30,45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  PopupMenu.cpp
+D:\Games and programs\Amber\Amber\Input.h(29,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\Input.h(30,45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Games and programs\Amber\Amber\PopupMenu.cpp(77,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Games and programs\Amber\Amber\PopupMenu.cpp(84,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Games and programs\Amber\Amber\PopupMenu.cpp(84,43): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Generating Code...
+sfml-graphics-d.lib(sfml-graphics-d-2.dll) : fatal error LNK1112: module machine type 'x86' conflicts with target machine type 'x64'
