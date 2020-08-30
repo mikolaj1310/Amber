@@ -9,13 +9,12 @@ LevelHub::LevelHub(sf::RenderWindow* hwnd, Input* in)
 	b2Vec2 gravity(0.0f, 0.0f);
 	world = new b2World(gravity);
 
-
-	
 	bgTex.loadFromFile("gfx/Backgrounds/TestBackground.png");
 
 	background.setTexture(&bgTex);
 	background.setSize(sf::Vector2f(1024, 576));
 	background.setPosition(0, 0);
+	background.setOrigin(background.getSize().x / 2, background.getSize().y / 2);
 	
 	playerFollowView.setSize(sf::Vector2f(896, 504));
 	playerFollowView.setCenter(sf::Vector2f(playerFollowView.getSize().x / 2, playerFollowView.getSize().y / 2));
@@ -34,9 +33,8 @@ LevelHub::LevelHub(sf::RenderWindow* hwnd, Input* in)
 	cube.setOrigin(50, 50);
 	cube.setType(CUBE);
 
-	playerTex.loadFromFile("gfx/tank idle.png");
+	
 	world = player.initB2Body(world);
-	player.setTexture(&playerTex);
 
 	grndTex.loadFromFile("gfx/Asteroid.png");
 	ground.setTexture(&grndTex);
@@ -128,6 +126,8 @@ void LevelHub::update(float dt, int load)
 	window->setView(playerFollowView);
 	playerFollowView.setCenter(player.getPosition());
 	playerFollowView.setRotation(player.getRotation() * 180 / pi);
+	background.setPosition(player.getPosition());
+	background.setRotation(player.getRotation() * 180 / pi);
 
 	b2Vec2 vel = player.getB2Body()->GetLinearVelocity();
 

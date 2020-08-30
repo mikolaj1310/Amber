@@ -3,7 +3,7 @@
 Player::Player()
 {
 	velocity.x = 10;
-	velocity.y = 7;
+	velocity.y = 10;
 	maxVelocity.x = 40;
 	maxVelocity.y = 40;
 	objectType = PLAYER;
@@ -13,11 +13,8 @@ Player::Player()
 
 void Player::initAnimation()
 {
-	//size of just the visible part
-
-	//Displacement of the sprite from the top left to the top left of the visible part
-
-	
+	chasisIdle1Tex.loadFromFile("gfx/tank idle.png");
+	setTexture(&chasisIdle1Tex);
 
 	idleAnimation.addFrame(sf::IntRect(0, 0, 64, 64));
 	idleAnimation.addFrame(sf::IntRect(64, 0, 64, 64));
@@ -28,18 +25,18 @@ void Player::initAnimation()
 	idleAnimation.addFrame(sf::IntRect(384, 0, 64, 64));
 	idleAnimation.addFrame(sf::IntRect(448, 0, 64, 64));
 	idleAnimation.addFrame(sf::IntRect(512, 0, 64, 64));
-	idleAnimation.setFrameSpeed(1.f / 9.f);
+	idleAnimation.setFrameSpeed(1.f / 18.f);
 	idleAnimation.setOriginOffset(sf::Vector2f(0, 0));
 	idleAnimation.setSpriteSize(sf::Vector2f(64, 64));
 	idleAnimation.setVisibleSpriteSize(sf::Vector2f(64, 64));
 
-	currentAnimation = &idleAnimation;
+	chasisAnimation = &idleAnimation;
 
-	setSize(currentAnimation->getSpriteSize());
-	setOrigin(currentAnimation->getOriginOffset().x + (currentAnimation->getVisibleSpriteSize().x / 2), 
-			  currentAnimation->getOriginOffset().y + (currentAnimation->getVisibleSpriteSize().y / 2));
+	setSize(chasisAnimation->getSpriteSize());
+	setOrigin(chasisAnimation->getOriginOffset().x + (chasisAnimation->getVisibleSpriteSize().x / 2),
+		chasisAnimation->getOriginOffset().y + (chasisAnimation->getVisibleSpriteSize().y / 2));
 
-	setTextureRect(currentAnimation->getCurrentFrame());
+	setTextureRect(chasisAnimation->getCurrentFrame());
 }
 
 void Player::init(b2Body* gBody)
@@ -136,16 +133,21 @@ void Player::handleInput(float dt, Input* in)
 	switch (moveState)
 	{
 	case MS_LEFT:
-		playerBody->ApplyForceToCenter(b2Vec2(-velDir.x * 50, -velDir.y * 50), true);
+		playerBody->ApplyForceToCenter(b2Vec2(-velDir.x * maxVelocity.x, -velDir.y * maxVelocity.x), true);
 		break;
 	case MS_RIGHT:	
-		playerBody->ApplyForceToCenter(b2Vec2(velDir.x * 50, velDir.y * 50), true);
+		playerBody->ApplyForceToCenter(b2Vec2(velDir.x * maxVelocity.x, velDir.y * maxVelocity.x), true);
 		break;
 	case MS_STOP:
 		break;
 	}
 
-	playerBody->ApplyForceToCenter((gravForce) * gravity, true);
+	playerBody->ApplyForceToCenter(((gravForce * 3) * gravity), true);
+
+	if (input->isKeyDown(sf::Keyboard::Space))
+	{
+		playerBody->ApplyForceToCenter((velocity.y * 100) * gravity, true);
+	}
 
 	/*
 	if (vel.y > 0.1)
@@ -173,32 +175,31 @@ void Player::handleInput(float dt, Input* in)
 
 void Player::animatePlayer(float dt)
 {
-	setTextureRect(currentAnimation->getCurrentFrame());
+	setTextureRect(chasisAnimation->getCurrentFrame());
 
-	setSize(currentAnimation->getSpriteSize());
-	setOrigin(currentAnimation->getOriginOffset().x + (currentAnimation->getVisibleSpriteSize().x / 2),
-		currentAnimation->getOriginOffset().y + (currentAnimation->getVisibleSpriteSize().y / 2));
+	setSize(chasisAnimation->getSpriteSize());
+	setOrigin(chasisAnimation->getOriginOffset().x + (chasisAnimation->getVisibleSpriteSize().x / 2),
+		chasisAnimation->getOriginOffset().y + (chasisAnimation->getVisibleSpriteSize().y / 2));
 	   
 	if (faceDirState == FD_LEFT)
-		currentAnimation->setFlipped(true);
+		chasisAnimation->setFlipped(true);
 	if (faceDirState == FD_RIGHT)
-		currentAnimation->setFlipped(false);
+		chasisAnimation->setFlipped(false);
 
-	if (jumpState == JS_GROUNDED)
+
+	if (moveState == MS_STOP)
 	{
-		if (moveState == MS_STOP)
-		{
-			currentAnimation = &idleAnimation;
-		}
-		if (moveState == MS_LEFT)
-		{
-			currentAnimation = &runAnimation;
-		}
-		if (moveState == MS_RIGHT)
-		{
-			currentAnimation = &runAnimation;
-		}
+		chasisAnimation = &idleAnimation;
 	}
+	if (moveState == MS_LEFT)
+	{
+		//currentAnimation = &runAnimation;
+	}
+	if (moveState == MS_RIGHT)
+	{
+		//currentAnimation = &runAnimation;
+	}
+
 
 	
 	/*
@@ -220,5 +221,11 @@ void Player::animatePlayer(float dt)
 	}*/
 
 
-	currentAnimation->animate(dt);
+	chasisAnimation->animate(dt);
+}
+
+void Player::render(sf::RenderWindow* window)
+{
+
+	//window->draw();
 }

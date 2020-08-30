@@ -36,6 +36,6 @@ private:
 	GameObject background;
 	sf::Texture bgTex;
 
-	Player player;	sf::Texture playerTex;	GameObject ground;	sf::Texture grndTex;	b2Body* grndBody;	GameObject cube;	sf::Texture cubeTex;	b2Body* cubeBody;	sf::Clock fireRate;
+	Player player;	GameObject ground;	sf::Texture grndTex;	b2Body* grndBody;	GameObject cube;	sf::Texture cubeTex;	b2Body* cubeBody;	sf::Clock fireRate;
 	sf::Clock generationTime;
 	sf::Time time;	sf::Font font;	sf::Text text;	sf::Text savedText;	sf::View playerFollowView;	sf::View minimap;};

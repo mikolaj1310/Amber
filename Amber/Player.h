@@ -11,8 +11,8 @@ class Player : public GameObject
 		MS_RIGHT
 	};
 
-	enum JumpState {
-		JS_JUMPING,
+	enum FlyState {
+		JS_FLYING,
 		JS_FALLING,
 		JS_GROUNDED
 	};
@@ -40,10 +40,13 @@ public:
 	b2Vec2 getGravity() { return gravity; };
 	void setGravity(b2Vec2 grav, float gravF) { gravity = grav; gravForce = gravF; };
 
+	void render(sf::RenderWindow* window);
 protected:
 	MoveState moveState;
-	JumpState jumpState;
+	FlyState flyState;
 	FaceDirState faceDirState;
+
+	sf::Texture chasisIdle1Tex;
 
 	Animation idleAnimation;
 	Animation runAnimation;
@@ -51,7 +54,7 @@ protected:
 	Animation fallAnimation;
 	Animation attack1Animation;
 
-	Animation* currentAnimation;
+	Animation* chasisAnimation;
 
 	Input* input;
 	std::chrono::time_point<std::chrono::high_resolution_clock> startAttackTimer;
