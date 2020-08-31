@@ -31,7 +31,8 @@ public:
 	void update(float dt);
 	void handleInput(float dt, Input* input);
 	b2Body* getB2Body() { return playerBody; };
-	void initAnimation();
+	void initChasisAnimation();
+	void initTreadsAnimation();
 	void animatePlayer(float dt);
 
 	float getRotation() { return rotation; };
@@ -48,16 +49,18 @@ protected:
 
 	sf::Texture chasisIdle1Tex;
 
-	Animation idleAnimation;
-	Animation runAnimation;
-	Animation jumpAnimation;
-	Animation fallAnimation;
-	Animation attack1Animation;
+	GameObject treads;
+	sf::Texture treadsTex;
 
-	Animation* chasisAnimation;
+
+	Animation chasisIdleAnimation;
+
+	Animation treadsMovingAnimation;
+
+	Animation* currentChasisAnimation;
+	Animation* currentTreadsAnimation;
 
 	Input* input;
-	std::chrono::time_point<std::chrono::high_resolution_clock> startAttackTimer;
 
 	b2Body* playerBody;
 	b2Body* groundBody;

@@ -100,6 +100,7 @@ void LevelHub::initCube()
 	b2BodyDef cubeBodyDef;
 	cubeBodyDef.type = b2_dynamicBody;
 	cubeBodyDef.position = b2Vec2(600 / box2dScale, 100 / box2dScale);
+	cubeBodyDef.angularDamping = 5;
 
 	cubeBody = world->CreateBody(&cubeBodyDef);
 
@@ -110,8 +111,8 @@ void LevelHub::initCube()
 	//create fixture
 	b2FixtureDef cubeFixtureDef;
 	cubeFixtureDef.shape = &cubeShape;
-	cubeFixtureDef.density = 0.3;
-	cubeFixtureDef.friction = 0.2;
+	cubeFixtureDef.density = 10;
+	cubeFixtureDef.friction = 0.5;
 
 
 	//create fixture on the rigig body
@@ -249,6 +250,7 @@ void LevelHub::render()
 	window->draw(ground);
 	window->draw(cube);
 	window->draw(player);
+	player.render(window);
 	window->draw(text);
 	window->draw(savedText);
 

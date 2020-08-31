@@ -28,17 +28,11 @@ public:
 	void setPlaying(bool play) { isPlaying = play; };
 	bool getPlaying() { return isPlaying; };
 
-	void setOriginOffset(sf::Vector2f ori) { originOffset = ori; };
-	sf::Vector2f getOriginOffset() { return originOffset; };
 	void setSpriteSize(sf::Vector2f sps) { spriteSize = sps; };
 	sf::Vector2f getSpriteSize() { return spriteSize; };
-	void setVisibleSpriteSize(sf::Vector2f vsps) { visibleSpriteSize = vsps; };
-	sf::Vector2f getVisibleSpriteSize() { return visibleSpriteSize; };
 
 protected:
 	sf::Vector2f spriteSize;
-	sf::Vector2f visibleSpriteSize;
-	sf::Vector2f originOffset;
 	std::vector<sf::IntRect>frames;
 	sf::IntRect frame;
 	int currentFrame;

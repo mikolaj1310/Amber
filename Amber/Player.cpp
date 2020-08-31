@@ -2,41 +2,63 @@
 
 Player::Player()
 {
-	velocity.x = 10;
-	velocity.y = 10;
+	velocity.x = 7;
+	velocity.y = 7;
 	maxVelocity.x = 40;
 	maxVelocity.y = 40;
 	objectType = PLAYER;
 	faceDirState = FD_RIGHT;
-	initAnimation();
+	initChasisAnimation();
+	initTreadsAnimation();
 }
 
-void Player::initAnimation()
+void Player::initChasisAnimation()
 {
-	chasisIdle1Tex.loadFromFile("gfx/tank idle.png");
+	chasisIdle1Tex.loadFromFile("gfx/Player/tank chasis idle.png");
 	setTexture(&chasisIdle1Tex);
 
-	idleAnimation.addFrame(sf::IntRect(0, 0, 64, 64));
-	idleAnimation.addFrame(sf::IntRect(64, 0, 64, 64));
-	idleAnimation.addFrame(sf::IntRect(128, 0, 64, 64));
-	idleAnimation.addFrame(sf::IntRect(192, 0, 64, 64));
-	idleAnimation.addFrame(sf::IntRect(256, 0, 64, 64));
-	idleAnimation.addFrame(sf::IntRect(320, 0, 64, 64));
-	idleAnimation.addFrame(sf::IntRect(384, 0, 64, 64));
-	idleAnimation.addFrame(sf::IntRect(448, 0, 64, 64));
-	idleAnimation.addFrame(sf::IntRect(512, 0, 64, 64));
-	idleAnimation.setFrameSpeed(1.f / 18.f);
-	idleAnimation.setOriginOffset(sf::Vector2f(0, 0));
-	idleAnimation.setSpriteSize(sf::Vector2f(64, 64));
-	idleAnimation.setVisibleSpriteSize(sf::Vector2f(64, 64));
 
-	chasisAnimation = &idleAnimation;
+	chasisIdleAnimation.addFrame(sf::IntRect(0, 0, 64, 64));
+	chasisIdleAnimation.addFrame(sf::IntRect(64, 0, 64, 64));
+	chasisIdleAnimation.addFrame(sf::IntRect(128, 0, 64, 64));
+	chasisIdleAnimation.addFrame(sf::IntRect(192, 0, 64, 64));
+	chasisIdleAnimation.addFrame(sf::IntRect(256, 0, 64, 64));
+	chasisIdleAnimation.addFrame(sf::IntRect(320, 0, 64, 64));
+	chasisIdleAnimation.addFrame(sf::IntRect(384, 0, 64, 64));
+	chasisIdleAnimation.addFrame(sf::IntRect(448, 0, 64, 64));
+	chasisIdleAnimation.addFrame(sf::IntRect(512, 0, 64, 64));
+	chasisIdleAnimation.setFrameSpeed(1.f / 18.f);
+	chasisIdleAnimation.setSpriteSize(sf::Vector2f(64, 64));
 
-	setSize(chasisAnimation->getSpriteSize());
-	setOrigin(chasisAnimation->getOriginOffset().x + (chasisAnimation->getVisibleSpriteSize().x / 2),
-		chasisAnimation->getOriginOffset().y + (chasisAnimation->getVisibleSpriteSize().y / 2));
+	currentChasisAnimation = &chasisIdleAnimation;
 
-	setTextureRect(chasisAnimation->getCurrentFrame());
+	setSize(currentChasisAnimation->getSpriteSize());
+	setOrigin(getSize().x / 2, getSize().y / 2);
+	setTextureRect(currentChasisAnimation->getCurrentFrame());
+}
+
+void Player::initTreadsAnimation()
+{
+	treadsTex.loadFromFile("gfx/Player/tank treads default.png");
+	treads.setTexture(&treadsTex);
+
+	treadsMovingAnimation.addFrame(sf::IntRect(0, 0, 64, 64));
+	treadsMovingAnimation.addFrame(sf::IntRect(64, 0, 64, 64));
+	treadsMovingAnimation.addFrame(sf::IntRect(128, 0, 64, 64));
+	treadsMovingAnimation.addFrame(sf::IntRect(192, 0, 64, 64));
+	treadsMovingAnimation.addFrame(sf::IntRect(256, 0, 64, 64));
+	treadsMovingAnimation.addFrame(sf::IntRect(320, 0, 64, 64));
+	treadsMovingAnimation.addFrame(sf::IntRect(384, 0, 64, 64));
+	treadsMovingAnimation.addFrame(sf::IntRect(448, 0, 64, 64));
+	treadsMovingAnimation.addFrame(sf::IntRect(512, 0, 64, 64));
+	treadsMovingAnimation.setFrameSpeed(1.f / (velocity.x * 5));
+	treadsMovingAnimation.setSpriteSize(sf::Vector2f(64, 64));
+
+	currentTreadsAnimation = &treadsMovingAnimation;
+
+	treads.setSize(currentTreadsAnimation->getSpriteSize());
+	treads.setOrigin(treads.getSize().x / 2, treads.getSize().y / 2);
+	treads.setTextureRect(currentTreadsAnimation->getCurrentFrame());
 }
 
 void Player::init(b2Body* gBody)
@@ -59,13 +81,13 @@ b2World* Player::initB2Body(b2World* world)
 	//create shape for player
 	b2PolygonShape playerShape;
 	//playerShape.SetAsBox(67 / box2dScale, 109 / box2dScale);
-	playerShape.SetAsBox((idleAnimation.getSpriteSize().x / 2) / box2dScale, (idleAnimation.getSpriteSize().y / 2) / box2dScale);
+	playerShape.SetAsBox((chasisIdleAnimation.getSpriteSize().x / 2) / box2dScale, (chasisIdleAnimation.getSpriteSize().y / 2) / box2dScale);
 
 	//create fixture
 	b2FixtureDef playerFixtureDef;
 	playerFixtureDef.shape = &playerShape;
 	playerFixtureDef.density = 0.5;
-	playerFixtureDef.friction = 1;
+	playerFixtureDef.friction = 0;
 	
 	//create fixture on the rigig body
 	playerBody->CreateFixture(&playerFixtureDef);
@@ -97,6 +119,7 @@ void Player::update(float dt)
 		rotation = rotation + (90 * pi / 180);
 	else
 		rotation = rotation - (90 * pi / 180);
+
 	playerBody->SetTransform(playerBody->GetPosition(), rotation);
 
 	updateFromSimulation(playerBody);
@@ -122,10 +145,6 @@ void Player::handleInput(float dt, Input* in)
 	}
 
 
-	
-	//float force = 0;
-	
-
 	//velocities based on rotation
 	b2Vec2 velDir(0, 0);
 	velDir.x = cos(rotation) * velocity.x;
@@ -142,90 +161,54 @@ void Player::handleInput(float dt, Input* in)
 		break;
 	}
 
-	playerBody->ApplyForceToCenter(((gravForce * 3) * gravity), true);
+	playerBody->ApplyForceToCenter(((gravForce * 2) * gravity), true);
 
 	if (input->isKeyDown(sf::Keyboard::Space))
 	{
 		playerBody->ApplyForceToCenter((velocity.y * 100) * gravity, true);
 	}
-
-	/*
-	if (vel.y > 0.1)
-	{
-		jumpState = JS_FALLING;
-	}
-	if (vel.y < -0.1)
-	{
-		jumpState = JS_JUMPING;
-	}
-	if (vel.y >= -0.1 && vel.y <= 0.1 && jumpState == JS_FALLING)
-	{
-		jumpState = JS_GROUNDED;
-	}
-
-	if (in->isKeyDown(sf::Keyboard::Space))
-	{
- 		if (jumpState == JS_GROUNDED)
-		{
-			float impulse = playerBody->GetMass() * -30;
-			playerBody->ApplyLinearImpulse(b2Vec2(0, impulse), playerBody->GetWorldCenter(), true);
-		}
-	}*/
 }
 
 void Player::animatePlayer(float dt)
 {
-	setTextureRect(chasisAnimation->getCurrentFrame());
+	setTextureRect(currentChasisAnimation->getCurrentFrame());
+	treads.setTextureRect(currentTreadsAnimation->getCurrentFrame());
+	treads.setPosition(playerBody->GetPosition().x * box2dScale, playerBody->GetPosition().y * box2dScale);
+	treads.setRotation(rotation * 180 / pi);
 
-	setSize(chasisAnimation->getSpriteSize());
-	setOrigin(chasisAnimation->getOriginOffset().x + (chasisAnimation->getVisibleSpriteSize().x / 2),
-		chasisAnimation->getOriginOffset().y + (chasisAnimation->getVisibleSpriteSize().y / 2));
-	   
+
 	if (faceDirState == FD_LEFT)
-		chasisAnimation->setFlipped(true);
+	{
+		currentChasisAnimation->setFlipped(true);
+		currentTreadsAnimation->setFlipped(true);
+	}
 	if (faceDirState == FD_RIGHT)
-		chasisAnimation->setFlipped(false);
+	{
+		currentChasisAnimation->setFlipped(false);
+		currentTreadsAnimation->setFlipped(false);
+	}
 
 
 	if (moveState == MS_STOP)
 	{
-		chasisAnimation = &idleAnimation;
+		chasisIdleAnimation.setFrameSpeed(1.f / 18.f);
+		currentChasisAnimation = &chasisIdleAnimation;
 	}
 	if (moveState == MS_LEFT)
 	{
-		//currentAnimation = &runAnimation;
+		chasisIdleAnimation.setFrameSpeed(1.f / 30.f);
+		currentTreadsAnimation->animate(dt);
 	}
 	if (moveState == MS_RIGHT)
 	{
-		//currentAnimation = &runAnimation;
+		chasisIdleAnimation.setFrameSpeed(1.f / 30.f);
+		currentTreadsAnimation->animate(dt);
 	}
 
-
-	
-	/*
-	if (jumpState == JS_JUMPING)
-	{
-		currentAnimation = &jumpAnimation;
-		if (moveState == MS_LEFT)
-			currentAnimation->setFlipped(true);
-		if (moveState == MS_RIGHT)
-			currentAnimation->setFlipped(false);
-	}
-	if (jumpState == JS_FALLING)
-	{
-		currentAnimation = &fallAnimation;
-		if (moveState == MS_LEFT)
-		if (moveState == MS_RIGHT)
-			currentAnimation->setFlipped(false);
- 		jumpAnimation.reset();
-	}*/
-
-
-	chasisAnimation->animate(dt);
+	currentChasisAnimation->animate(dt);
 }
 
 void Player::render(sf::RenderWindow* window)
 {
-
-	//window->draw();
+	window->draw(treads);
 }

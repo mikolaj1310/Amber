@@ -1,32 +1,5 @@
-﻿  LevelHub.cpp
+﻿  Player.cpp
 D:\Games and programs\Amber\Amber\Input.h(29,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
 D:\Games and programs\Amber\Amber\Input.h(30,45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 D:\Games and programs\Amber\Amber\Renderer.h(4,31): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Games and programs\Amber\Amber\LevelHub.cpp(25,58): warning C4305: 'argument': truncation from 'double' to 'T'
-          with
-          [
-              T=float
-          ]
-D:\Games and programs\Amber\Amber\LevelHub.cpp(113,30): warning C4305: '=': truncation from 'double' to 'float32'
-D:\Games and programs\Amber\Amber\LevelHub.cpp(114,31): warning C4305: '=': truncation from 'double' to 'float32'
-  Main.cpp
-D:\Games and programs\Amber\Amber\Input.h(29,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-D:\Games and programs\Amber\Amber\Input.h(30,45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Games and programs\Amber\Amber\Renderer.h(4,31): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Games and programs\Amber\Amber\Main.cpp(28,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
-D:\Games and programs\Amber\Amber\Main.cpp(117,46): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\Games and programs\Amber\Amber\Main.cpp(117,34): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-  Player.cpp
-D:\Games and programs\Amber\Amber\Input.h(29,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-D:\Games and programs\Amber\Amber\Input.h(30,45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Games and programs\Amber\Amber\Renderer.h(4,31): warning C4305: 'initializing': truncation from 'double' to 'float'
-  Generating Code...
   Amber.vcxproj -> D:\Games and programs\Amber\Debug\Amber.exe
